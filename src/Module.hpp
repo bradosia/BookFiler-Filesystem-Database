@@ -38,7 +38,7 @@
 #include <rapidjson/writer.h>
 
 // Local Project
-#include "Interface.hpp"
+#include <BookFiler-Module-Filesystem-Database/Interface.hpp>
 #include "core/Filesystem.hpp"
 #include "core/FilesystemFileTable.hpp"
 #include "core/FilesystemSignal.hpp"
