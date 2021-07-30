@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-set(PROJECT_NAME BookFiler-Module-Filesystem-Database)
+set(PROJECT_NAME BookFilerModuleFilesystemDatabase)
 project(${PROJECT_NAME} VERSION 1.0.0 LANGUAGES CXX)
 set(RELEASE_DIR "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/")
 set(INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/")
