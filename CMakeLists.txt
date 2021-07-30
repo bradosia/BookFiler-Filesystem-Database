@@ -130,7 +130,7 @@ if(BUILD_STATIC_LIBS)
 endif()
 
 # THIRD PARTY
-add_subdirectory(third_party)
+#add_subdirectory(third_party)
 if(NOT ModuleManager)
     #add_subdirectory(third_party/Module-Manager)
 endif()
