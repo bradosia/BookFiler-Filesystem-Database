@@ -93,8 +93,8 @@ public:
 
 // Exporting `my_namespace::module` variable with alias name `module`
 // (Has the same effect as `BOOST_DLL_ALIAS(my_namespace::module, module)`)
-extern "C" BOOST_SYMBOL_EXPORT ModuleExport filesystemDatabaseModule;
-ModuleExport filesystemDatabaseModule;
+extern "C" BOOST_SYMBOL_EXPORT ModuleExport bookfilerFilesystemDatabaseModule;
+ModuleExport bookfilerFilesystemDatabaseModule;
 
 } // namespace FSDB
 
