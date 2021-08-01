@@ -70,9 +70,9 @@ void ModuleExport::setSettings(std::shared_ptr<rapidjson::Value> data) {
 
 void ModuleExport::getDirectorySlot(
     std::string pathStr,
-    std::function<void(std::shared_ptr<filesystem::FileTableData>)> callback) {
+    std::function<void(std::shared_ptr<bookfiler::filesystem::FileTableData>)> callback) {
   std::cout << "FSDB::ModuleExport::getDirectorySlot(" << pathStr << ")\n";
-  fileTable->getData(pathStr, callback);
+  //fileTable->getData(pathStr, callback);
 }
 
 int ModuleExport::newModel() {
@@ -87,7 +87,7 @@ int ModuleExport::newSignal() {
 }
 
 bool ModuleExport::connectSignal(
-    int signalId, std::function<void(std::shared_ptr<filesystem::SignalEvent>)>
+    int signalId, std::function<void(std::shared_ptr<bookfiler::filesystem::SignalEvent>)>
                       signalCallback) {
   auto found = signalMap.find(signalId);
   if (found == signalMap.end()) {
@@ -129,7 +129,7 @@ void ModuleExport::addTestSignals(rapidjson::Value &data) {
 }
 
 void ModuleExport::testSignalCallback(
-    std::shared_ptr<FSDB::filesystem::SignalEvent> signalEventPtr) {
+    std::shared_ptr<bookfiler::filesystem::SignalEvent> signalEventPtr) {
   std::cout << "filesystem signal: path=\""
             << filesystem::toUTF8String(signalEventPtr->path)
             << "\" type=" << (int)signalEventPtr->type << "\n";

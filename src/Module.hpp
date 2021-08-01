@@ -54,7 +54,7 @@ namespace FSDB {
  * This is the controller, the view is a QT widget, and the model is the API
  * storage
  */
-class ModuleExport : public ModuleInterface {
+class ModuleExport : public bookfiler::FileSystemDatabaseInterface {
 private:
   std::shared_ptr<filesystem::FileTable> fileTable;
   int fileModelMapIncrementId = 0;
@@ -78,17 +78,17 @@ public:
   void setSettings(std::shared_ptr<rapidjson::Value> data);
   void getDirectorySlot(
       std::string,
-      std::function<void(std::shared_ptr<filesystem::FileTableData>)>);
+      std::function<void(std::shared_ptr<bookfiler::filesystem::FileTableData>)>);
   int newModel();
   int newSignal();
   bool
   connectSignal(int signalId,
-                std::function<void(std::shared_ptr<filesystem::SignalEvent>)>
+                std::function<void(std::shared_ptr<bookfiler::filesystem::SignalEvent>)>
                     signalCallback);
   bool watchSignal(int signalId, std::wstring pathWstr);
   bool watchSignal(int signalId, std::string pathStr);
   void addTestSignals(rapidjson::Value &data);
-  void testSignalCallback(std::shared_ptr<FSDB::filesystem::SignalEvent> signalEventPtr);
+  void testSignalCallback(std::shared_ptr<bookfiler::filesystem::SignalEvent> signalEventPtr);
 };
 
 // Exporting `my_namespace::module` variable with alias name `module`

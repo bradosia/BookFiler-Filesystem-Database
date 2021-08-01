@@ -41,7 +41,8 @@ namespace filesystem {
  */
 class SignalBase {
 protected:
-  std::shared_ptr<boost::signals2::signal<void(std::shared_ptr<SignalEvent>)>>
+  std::shared_ptr<boost::signals2::signal<void(
+      std::shared_ptr<bookfiler::filesystem::SignalEvent>)>>
       sig;
   bool initError = false;
 
@@ -51,15 +52,18 @@ public:
    * WINAPI:
    */
   SignalBase() {
-    sig = std::make_shared<
-        boost::signals2::signal<void(std::shared_ptr<SignalEvent>)>>();
+    sig = std::make_shared<boost::signals2::signal<void(
+        std::shared_ptr<bookfiler::filesystem::SignalEvent>)>>();
   }
   ~SignalBase(){};
-  std::shared_ptr<boost::signals2::signal<void(std::shared_ptr<SignalEvent>)>>
+  std::shared_ptr<boost::signals2::signal<
+      void(std::shared_ptr<bookfiler::filesystem::SignalEvent>)>>
   getSignal() {
     return sig;
   }
-  void connect(std::function<void(std::shared_ptr<SignalEvent>)> callback) {
+  void connect(
+      std::function<void(std::shared_ptr<bookfiler::filesystem::SignalEvent>)>
+          callback) {
     sig->connect(callback);
   }
   /* Similar to:
