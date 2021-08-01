@@ -90,18 +90,18 @@ void Signal::watch(HANDLE fileHandle, std::shared_ptr<HandleInfo> handleInfo,
         boost::filesystem::path eventPath(
             std::wstring(event->FileName, event->FileNameLength / 2));
         boost::filesystem::path eventFullPath(watchPath / eventPath);
-        std::shared_ptr<SignalEvent> sigEvent = std::make_unique<SignalEvent>();
+        std::shared_ptr<bookfiler::filesystem::SignalEvent> sigEvent = std::make_unique<bookfiler::filesystem::SignalEvent>();
         sigEvent->path = eventFullPath.generic_wstring();
         if (event->Action == FILE_ACTION_ADDED) {
-          sigEvent->type = signalEventType::fileCreate;
+          sigEvent->type = bookfiler::filesystem::signalEventType::fileCreate;
         } else if (event->Action == FILE_ACTION_REMOVED) {
-          sigEvent->type = signalEventType::fileDelete;
+          sigEvent->type = bookfiler::filesystem::signalEventType::fileDelete;
         } else if (event->Action == FILE_ACTION_MODIFIED) {
-          sigEvent->type = signalEventType::fileDataChange;
+          sigEvent->type = bookfiler::filesystem::signalEventType::fileDataChange;
         } else if (event->Action == FILE_ACTION_RENAMED_OLD_NAME) {
-          sigEvent->type = signalEventType::fileNameChange;
+          sigEvent->type = bookfiler::filesystem::signalEventType::fileNameChange;
         } else if (event->Action == FILE_ACTION_RENAMED_NEW_NAME) {
-          sigEvent->type = signalEventType::fileNameChange;
+          sigEvent->type = bookfiler::filesystem::signalEventType::fileNameChange;
         }
         // signal
         (*sig)(sigEvent);

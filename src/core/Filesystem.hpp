@@ -23,6 +23,9 @@
  */
 #include "boost/filesystem.hpp"
 
+// Local Project
+#include <BookFiler-Module-Filesystem-Database/Interface.hpp>
+
 namespace FSDB {
 namespace filesystem {
 
